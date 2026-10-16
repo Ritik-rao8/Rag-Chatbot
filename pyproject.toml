@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rag-document-explorer"
+version = "0.1.0"
+description = "A document-grounded chatbot for PDFs and webpages using local retrieval and Groq."
+readme = "README.md"
+requires-python = ">=3.11,<3.14"
+dependencies = [
+  "streamlit>=1.66,<2",
+  "pypdf>=6,<7",
+  "langchain-core>=1,<2",
+  "langchain-text-splitters>=1,<2",
+  "langchain-chroma>=1,<2",
+  "langchain-groq>=1,<2",
+  "chromadb>=1,<2",
+  "sentence-transformers>=5,<6",
+  "python-dotenv>=1,<2",
+  "beautifulsoup4>=4.13,<5",
+  "certifi>=2024.2.2",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10", "ruff>=0.11,<1"]
+
+[tool.setuptools.packages.find]
+include = ["src*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["integration: downloads and runs the real embedding model", "live: calls Groq when RUN_GROQ_LIVE=1 and a key is configured"]
+
+[tool.ruff]
+line-length = 100
+

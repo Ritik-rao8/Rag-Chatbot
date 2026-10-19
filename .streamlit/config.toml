@@ -1,0 +1,17 @@
+[server]
+maxUploadSize = 20
+# Transformers uses lazy modules that conflict with Streamlit's source watcher.
+# Restart Streamlit after editing Python source files.
+fileWatcherType = "none"
+
+[browser]
+gatherUsageStats = false
+
+
+[theme]
+base = "dark"
+primaryColor = "#6ee7b7"
+backgroundColor = "#0c111b"
+secondaryBackgroundColor = "#172230"
+textColor = "#e6edf3"
+font = "sans serif"

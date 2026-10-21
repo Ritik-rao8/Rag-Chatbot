@@ -1,0 +1,173 @@
+[
+  {
+    "id": "q1",
+    "category": "factual",
+    "question": "How long do I have to return an unused item?",
+    "expected_sources": [
+      "returns"
+    ],
+    "reference_answer": "Unused items can be returned within thirty days of purchase.",
+    "term_groups": [
+      [
+        "thirty",
+        "30"
+      ]
+    ]
+  },
+  {
+    "id": "q2",
+    "category": "factual",
+    "question": "How long does standard delivery take?",
+    "expected_sources": [
+      "shipping"
+    ],
+    "reference_answer": "Standard delivery takes five business days.",
+    "term_groups": [
+      [
+        "five",
+        "5"
+      ],
+      [
+        "business"
+      ]
+    ]
+  },
+  {
+    "id": "q3",
+    "category": "factual",
+    "question": "What does the electronics warranty cover and how long does it last?",
+    "expected_sources": [
+      "warranty"
+    ],
+    "reference_answer": "Manufacturing defects are covered for twelve months; accidental and water damage are excluded.",
+    "term_groups": [
+      [
+        "manufactur"
+      ],
+      [
+        "twelve",
+        "12"
+      ]
+    ]
+  },
+  {
+    "id": "q4",
+    "category": "factual",
+    "question": "When is customer support available?",
+    "expected_sources": [
+      "support"
+    ],
+    "reference_answer": "Monday-Friday, 09:00-17:00 UTC; closed weekends.",
+    "term_groups": [
+      [
+        "monday"
+      ],
+      [
+        "friday"
+      ],
+      [
+        "09:00",
+        "9:00",
+        "9 am",
+        "9 a.m."
+      ],
+      [
+        "17:00",
+        "5 pm",
+        "5 p.m."
+      ],
+      [
+        "utc"
+      ]
+    ]
+  },
+  {
+    "id": "q5",
+    "category": "cross_source",
+    "question": "If I return an unused item, what is the return deadline and will my original delivery charge be refunded?",
+    "expected_sources": [
+      "returns",
+      "shipping"
+    ],
+    "reference_answer": "Thirty days; original delivery charge is not refunded for unwanted-item returns.",
+    "term_groups": [
+      [
+        "thirty",
+        "30"
+      ],
+      [
+        "not",
+        "non-refundable",
+        "nonrefundable"
+      ]
+    ]
+  },
+  {
+    "id": "q6",
+    "category": "cross_source",
+    "question": "What proof is needed for a return and for an electronics warranty claim?",
+    "expected_sources": [
+      "returns",
+      "warranty"
+    ],
+    "reference_answer": "A receipt for returns and proof of purchase for warranty claims.",
+    "term_groups": [
+      [
+        "receipt"
+      ],
+      [
+        "proof of purchase"
+      ]
+    ]
+  },
+  {
+    "id": "q7",
+    "category": "follow_up",
+    "question": "Do I need a receipt for that?",
+    "expected_sources": [
+      "returns"
+    ],
+    "reference_answer": "Yes, a receipt is required for a return.",
+    "term_groups": [
+      [
+        "receipt"
+      ]
+    ],
+    "parent": "q1"
+  },
+  {
+    "id": "q8",
+    "category": "follow_up",
+    "question": "And how long does the faster option take?",
+    "expected_sources": [
+      "shipping"
+    ],
+    "reference_answer": "Express delivery takes two business days.",
+    "term_groups": [
+      [
+        "two",
+        "2"
+      ],
+      [
+        "business"
+      ]
+    ],
+    "parent": "q2"
+  },
+  {
+    "id": "q9",
+    "category": "unanswerable",
+    "question": "What is the founder's date of birth?",
+    "expected_sources": [],
+    "reference_answer": "Abstain: no founder birth date is provided.",
+    "term_groups": []
+  },
+  {
+    "id": "q10",
+    "category": "unanswerable",
+    "question": "How much revenue did the company earn last year?",
+    "expected_sources": [],
+    "reference_answer": "Abstain: no revenue is provided.",
+    "term_groups": []
+  }
+]

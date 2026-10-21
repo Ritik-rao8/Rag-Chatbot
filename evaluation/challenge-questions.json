@@ -1,0 +1,122 @@
+[
+  {
+    "id": "h1",
+    "category": "exclusions",
+    "question": "Are accidental damage and water damage covered by the electronics warranty?",
+    "expected_sources": [
+      "warranty"
+    ],
+    "reference_answer": "No. Accidental damage and water damage are excluded.",
+    "term_groups": [
+      [
+        "accidental"
+      ],
+      [
+        "water"
+      ],
+      [
+        "excluded",
+        "not covered",
+        "does not cover"
+      ]
+    ]
+  },
+  {
+    "id": "h2",
+    "category": "unsupported_condition",
+    "question": "Will my original delivery charge be refunded if I return a damaged product?",
+    "expected_sources": [],
+    "reference_answer": "Abstain. The shipping policy only specifies unwanted-item returns, not damaged-product returns.",
+    "term_groups": []
+  },
+  {
+    "id": "h3",
+    "category": "multi_part",
+    "question": "How many points do members earn per dollar, and do those points expire?",
+    "expected_sources": [
+      "loyalty"
+    ],
+    "reference_answer": "One point per dollar spent on eligible items. Points expire after twelve months of inactivity.",
+    "term_groups": [
+      [
+        "one",
+        "1"
+      ],
+      [
+        "eligible"
+      ],
+      [
+        "twelve",
+        "12"
+      ],
+      [
+        "inactiv"
+      ]
+    ]
+  },
+  {
+    "id": "h4",
+    "category": "restriction",
+    "question": "Can I exchange reward points for cash?",
+    "expected_sources": [
+      "loyalty"
+    ],
+    "reference_answer": "No, reward points cannot be exchanged for cash.",
+    "term_groups": [
+      [
+        "cannot",
+        "can not",
+        "not",
+        "no"
+      ],
+      [
+        "cash"
+      ]
+    ]
+  },
+  {
+    "id": "h5",
+    "category": "conditions",
+    "question": "How long do approved refunds take, and which payment method receives the refund?",
+    "expected_sources": [
+      "returns"
+    ],
+    "reference_answer": "Within seven business days after inspection, to the original payment method.",
+    "term_groups": [
+      [
+        "seven",
+        "7"
+      ],
+      [
+        "business"
+      ],
+      [
+        "inspection"
+      ],
+      [
+        "original"
+      ]
+    ]
+  },
+  {
+    "id": "h6",
+    "category": "restriction",
+    "question": "If I have a receipt, can I return a final-sale product?",
+    "expected_sources": [
+      "returns"
+    ],
+    "reference_answer": "No. Final-sale products cannot be returned even if the customer has a receipt.",
+    "term_groups": [
+      [
+        "cannot",
+        "can not",
+        "not",
+        "no"
+      ],
+      [
+        "final-sale",
+        "final sale"
+      ]
+    ]
+  }
+]

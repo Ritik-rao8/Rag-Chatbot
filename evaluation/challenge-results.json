@@ -1,0 +1,362 @@
+{
+  "timestamp": "2026-10-21T13:51:30.567909+00:00",
+  "model": "openai/gpt-oss-20b",
+  "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "chunk_tokens": 220,
+  "overlap_tokens": 32,
+  "k": 4,
+  "retrieval": "semantic + BM25 reciprocal-rank fusion",
+  "fixture_sha256": "cb64c643e560553fd1b82a837c244a1c5e7986926b09a0dc818f717d6eee4fb0",
+  "python": "3.13.6",
+  "cases": [
+    {
+      "id": "h1",
+      "category": "exclusions",
+      "question": "Are accidental damage and water damage covered by the electronics warranty?",
+      "expected_sources": [
+        "warranty"
+      ],
+      "reference_answer": "No. Accidental damage and water damage are excluded.",
+      "term_groups": [
+        [
+          "accidental"
+        ],
+        [
+          "water"
+        ],
+        [
+          "excluded",
+          "not covered",
+          "does not cover"
+        ]
+      ],
+      "retrieval_recall": 1.0,
+      "expected_sources_cited": true,
+      "reference_terms_present": true,
+      "expected_behavior": true,
+      "answer": "Accidental damage and water damage are excluded from the electronics warranty.",
+      "status": "answered",
+      "resolved_question": "Are accidental damage and water damage covered by the electronics warranty?",
+      "api_calls": 2,
+      "validation_issue": "",
+      "retrieved": [
+        {
+          "source": "https://example.test/warranty",
+          "distance": 0.3506072759628296,
+          "text": "Product warranty\nElectronics have a twelve-month warranty covering manufacturing defects. Accidental damage and water damage are excluded. Warranty claims require proof of purchase. Clothing does not have an electronics warranty."
+        },
+        {
+          "source": "https://example.test/care",
+          "distance": 0.6557819843292236,
+          "text": "Product care\nWash cotton clothing in cold water and dry it on a low setting. Store electronics in a dry location away from direct sunlight. Disconnect devices before cleaning them with a soft cloth."
+        },
+        {
+          "source": "https://example.test/privacy",
+          "distance": 0.8972052335739136,
+          "text": "Privacy notice\nCustomers can request a copy of their account data by contacting privacy@example.test. Marketing email preferences can be changed in account settings. Transaction records are retained for seven years."
+        },
+        {
+          "source": "https://example.test/returns",
+          "distance": 0.7690578699111938,
+          "text": "Return policy\nCustomers may return unused items within thirty days of purchase. A receipt is required. Final-sale products cannot be returned. Approved refunds are issued to the original payment method within seven business days after inspection."
+        }
+      ],
+      "evidence": [
+        {
+          "source": "https://example.test/warranty",
+          "quote": "Accidental damage and water damage are excluded."
+        }
+      ],
+      "seconds": 1.602
+    },
+    {
+      "id": "h2",
+      "category": "unsupported_condition",
+      "question": "Will my original delivery charge be refunded if I return a damaged product?",
+      "expected_sources": [],
+      "reference_answer": "Abstain. The shipping policy only specifies unwanted-item returns, not damaged-product returns.",
+      "term_groups": [],
+      "retrieval_recall": null,
+      "expected_sources_cited": null,
+      "reference_terms_present": null,
+      "expected_behavior": true,
+      "answer": "I couldn\u2019t find enough evidence in the retrieved passages to answer this question.",
+      "status": "insufficient_evidence",
+      "resolved_question": "Will my original delivery charge be refunded if I return a damaged product?",
+      "api_calls": 1,
+      "validation_issue": "",
+      "retrieved": [
+        {
+          "source": "https://example.test/returns",
+          "distance": 0.5393478870391846,
+          "text": "Return policy\nCustomers may return unused items within thirty days of purchase. A receipt is required. Final-sale products cannot be returned. Approved refunds are issued to the original payment method within seven business days after inspection."
+        },
+        {
+          "source": "https://example.test/shipping",
+          "distance": 0.593479335308075,
+          "text": "Delivery policy\nStandard delivery takes five business days and costs five dollars. Express delivery takes two business days and costs twelve dollars. The original delivery charge is not refunded when a customer returns an unwanted item."
+        },
+        {
+          "source": "https://example.test/warranty",
+          "distance": 0.6828153133392334,
+          "text": "Product warranty\nElectronics have a twelve-month warranty covering manufacturing defects. Accidental damage and water damage are excluded. Warranty claims require proof of purchase. Clothing does not have an electronics warranty."
+        },
+        {
+          "source": "https://example.test/care",
+          "distance": 0.8758285045623779,
+          "text": "Product care\nWash cotton clothing in cold water and dry it on a low setting. Store electronics in a dry location away from direct sunlight. Disconnect devices before cleaning them with a soft cloth."
+        }
+      ],
+      "evidence": [],
+      "seconds": 0.492
+    },
+    {
+      "id": "h3",
+      "category": "multi_part",
+      "question": "How many points do members earn per dollar, and do those points expire?",
+      "expected_sources": [
+        "loyalty"
+      ],
+      "reference_answer": "One point per dollar spent on eligible items. Points expire after twelve months of inactivity.",
+      "term_groups": [
+        [
+          "one",
+          "1"
+        ],
+        [
+          "eligible"
+        ],
+        [
+          "twelve",
+          "12"
+        ],
+        [
+          "inactiv"
+        ]
+      ],
+      "retrieval_recall": 1.0,
+      "expected_sources_cited": true,
+      "reference_terms_present": true,
+      "expected_behavior": true,
+      "answer": "Members earn one reward point per dollar spent on eligible items. Reward points expire after twelve months of inactivity.",
+      "status": "answered",
+      "resolved_question": "How many points do members earn per dollar, and do those points expire?",
+      "api_calls": 2,
+      "validation_issue": "",
+      "retrieved": [
+        {
+          "source": "https://example.test/loyalty",
+          "distance": 0.3058154582977295,
+          "text": "Loyalty rewards\nMembers earn one reward point per dollar spent on eligible items. Points expire after twelve months of inactivity. Reward points cannot be exchanged for cash. Membership is free."
+        },
+        {
+          "source": "https://example.test/giftcards",
+          "distance": 0.756659984588623,
+          "text": "Gift cards\nGift cards are available in amounts of twenty-five, fifty, or one hundred dollars. Gift cards do not expire. Gift cards cannot be redeemed for cash and cannot be used to purchase other gift cards."
+        },
+        {
+          "source": "https://example.test/privacy",
+          "distance": 0.8796016573905945,
+          "text": "Privacy notice\nCustomers can request a copy of their account data by contacting privacy@example.test. Marketing email preferences can be changed in account settings. Transaction records are retained for seven years."
+        },
+        {
+          "source": "https://example.test/returns",
+          "distance": 0.908653974533081,
+          "text": "Return policy\nCustomers may return unused items within thirty days of purchase. A receipt is required. Final-sale products cannot be returned. Approved refunds are issued to the original payment method within seven business days after inspection."
+        }
+      ],
+      "evidence": [
+        {
+          "source": "https://example.test/loyalty",
+          "quote": "Members earn one reward point per dollar spent on eligible items."
+        },
+        {
+          "source": "https://example.test/loyalty",
+          "quote": "Points expire after twelve months of inactivity."
+        }
+      ],
+      "seconds": 1.433
+    },
+    {
+      "id": "h4",
+      "category": "restriction",
+      "question": "Can I exchange reward points for cash?",
+      "expected_sources": [
+        "loyalty"
+      ],
+      "reference_answer": "No, reward points cannot be exchanged for cash.",
+      "term_groups": [
+        [
+          "cannot",
+          "can not",
+          "not",
+          "no"
+        ],
+        [
+          "cash"
+        ]
+      ],
+      "retrieval_recall": 1.0,
+      "expected_sources_cited": true,
+      "reference_terms_present": true,
+      "expected_behavior": true,
+      "answer": "Reward points cannot be exchanged for cash.",
+      "status": "answered",
+      "resolved_question": "Can I exchange reward points for cash?",
+      "api_calls": 2,
+      "validation_issue": "",
+      "retrieved": [
+        {
+          "source": "https://example.test/loyalty",
+          "distance": 0.35305142402648926,
+          "text": "Loyalty rewards\nMembers earn one reward point per dollar spent on eligible items. Points expire after twelve months of inactivity. Reward points cannot be exchanged for cash. Membership is free."
+        },
+        {
+          "source": "https://example.test/giftcards",
+          "distance": 0.6457393169403076,
+          "text": "Gift cards\nGift cards are available in amounts of twenty-five, fifty, or one hundred dollars. Gift cards do not expire. Gift cards cannot be redeemed for cash and cannot be used to purchase other gift cards."
+        },
+        {
+          "source": "https://example.test/returns",
+          "distance": 0.8302013874053955,
+          "text": "Return policy\nCustomers may return unused items within thirty days of purchase. A receipt is required. Final-sale products cannot be returned. Approved refunds are issued to the original payment method within seven business days after inspection."
+        },
+        {
+          "source": "https://example.test/privacy",
+          "distance": 0.8830251693725586,
+          "text": "Privacy notice\nCustomers can request a copy of their account data by contacting privacy@example.test. Marketing email preferences can be changed in account settings. Transaction records are retained for seven years."
+        }
+      ],
+      "evidence": [
+        {
+          "source": "https://example.test/loyalty",
+          "quote": "Reward points cannot be exchanged for cash."
+        }
+      ],
+      "seconds": 1.462
+    },
+    {
+      "id": "h5",
+      "category": "conditions",
+      "question": "How long do approved refunds take, and which payment method receives the refund?",
+      "expected_sources": [
+        "returns"
+      ],
+      "reference_answer": "Within seven business days after inspection, to the original payment method.",
+      "term_groups": [
+        [
+          "seven",
+          "7"
+        ],
+        [
+          "business"
+        ],
+        [
+          "inspection"
+        ],
+        [
+          "original"
+        ]
+      ],
+      "retrieval_recall": 1.0,
+      "expected_sources_cited": true,
+      "reference_terms_present": true,
+      "expected_behavior": true,
+      "answer": "Approved refunds are issued to the original payment method within seven business days after inspection.",
+      "status": "answered",
+      "resolved_question": "How long do approved refunds take, and which payment method receives the refund?",
+      "api_calls": 2,
+      "validation_issue": "",
+      "retrieved": [
+        {
+          "source": "https://example.test/returns",
+          "distance": 0.4602896571159363,
+          "text": "Return policy\nCustomers may return unused items within thirty days of purchase. A receipt is required. Final-sale products cannot be returned. Approved refunds are issued to the original payment method within seven business days after inspection."
+        },
+        {
+          "source": "https://example.test/shipping",
+          "distance": 0.6478657126426697,
+          "text": "Delivery policy\nStandard delivery takes five business days and costs five dollars. Express delivery takes two business days and costs twelve dollars. The original delivery charge is not refunded when a customer returns an unwanted item."
+        },
+        {
+          "source": "https://example.test/support",
+          "distance": 0.7938404083251953,
+          "text": "Customer support\nCustomer support is available Monday through Friday from 09:00 to 17:00 UTC. Email help@example.test for assistance. Support is closed on weekends. The team aims to reply within two business days."
+        },
+        {
+          "source": "https://example.test/loyalty",
+          "distance": 0.8858130574226379,
+          "text": "Loyalty rewards\nMembers earn one reward point per dollar spent on eligible items. Points expire after twelve months of inactivity. Reward points cannot be exchanged for cash. Membership is free."
+        }
+      ],
+      "evidence": [
+        {
+          "source": "https://example.test/returns",
+          "quote": "Approved refunds are issued to the original payment method within seven business days after inspection."
+        }
+      ],
+      "seconds": 2.48
+    },
+    {
+      "id": "h6",
+      "category": "restriction",
+      "question": "If I have a receipt, can I return a final-sale product?",
+      "expected_sources": [
+        "returns"
+      ],
+      "reference_answer": "No. Final-sale products cannot be returned even if the customer has a receipt.",
+      "term_groups": [
+        [
+          "cannot",
+          "can not",
+          "not",
+          "no"
+        ],
+        [
+          "final-sale",
+          "final sale"
+        ]
+      ],
+      "retrieval_recall": 1.0,
+      "expected_sources_cited": true,
+      "reference_terms_present": false,
+      "expected_behavior": true,
+      "answer": "Final\u2011sale products cannot be returned, even if a receipt is provided.",
+      "status": "answered",
+      "resolved_question": "If I have a receipt, can I return a final-sale product?",
+      "api_calls": 2,
+      "validation_issue": "",
+      "retrieved": [
+        {
+          "source": "https://example.test/returns",
+          "distance": 0.38612043857574463,
+          "text": "Return policy\nCustomers may return unused items within thirty days of purchase. A receipt is required. Final-sale products cannot be returned. Approved refunds are issued to the original payment method within seven business days after inspection."
+        },
+        {
+          "source": "https://example.test/warranty",
+          "distance": 0.7325925827026367,
+          "text": "Product warranty\nElectronics have a twelve-month warranty covering manufacturing defects. Accidental damage and water damage are excluded. Warranty claims require proof of purchase. Clothing does not have an electronics warranty."
+        },
+        {
+          "source": "https://example.test/care",
+          "distance": 0.8475591540336609,
+          "text": "Product care\nWash cotton clothing in cold water and dry it on a low setting. Store electronics in a dry location away from direct sunlight. Disconnect devices before cleaning them with a soft cloth."
+        },
+        {
+          "source": "https://example.test/giftcards",
+          "distance": 0.7770139575004578,
+          "text": "Gift cards\nGift cards are available in amounts of twenty-five, fifty, or one hundred dollars. Gift cards do not expire. Gift cards cannot be redeemed for cash and cannot be used to purchase other gift cards."
+        }
+      ],
+      "evidence": [
+        {
+          "source": "https://example.test/returns",
+          "quote": "Final-sale products cannot be returned."
+        }
+      ],
+      "seconds": 10.028
+    }
+  ],
+  "source_count": 8,
+  "chunk_count": 8
+}

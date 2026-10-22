@@ -1,0 +1,547 @@
+{
+  "timestamp": "2026-10-21T10:05:14.523280+00:00",
+  "model": "openai/gpt-oss-20b",
+  "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "chunk_tokens": 220,
+  "overlap_tokens": 32,
+  "k": 4,
+  "fixture_sha256": "3864197a9bfb11726c8ea3d28ccc12b541e684aeb44a83327110fa3b8a092548",
+  "python": "3.13.6",
+  "cases": [
+    {
+      "id": "q1",
+      "category": "factual",
+      "question": "How long do I have to return an unused item?",
+      "expected_sources": [
+        "returns"
+      ],
+      "reference_answer": "Unused items can be returned within thirty days of purchase.",
+      "term_groups": [
+        [
+          "thirty",
+          "30"
+        ]
+      ],
+      "retrieval_recall": 1.0,
+      "expected_sources_cited": true,
+      "reference_terms_present": true,
+      "expected_behavior": true,
+      "answer": "Customers may return unused items within thirty days of purchase.",
+      "status": "answered",
+      "resolved_question": "How long do I have to return an unused item?",
+      "retrieved": [
+        {
+          "source": "https://example.test/returns",
+          "distance": 0.2555777430534363,
+          "text": "Return policy\nCustomers may return unused items within thirty days of purchase. A receipt is required. Final-sale products cannot be returned. Approved refunds are issued to the original payment method within seven business days after inspection."
+        },
+        {
+          "source": "https://example.test/shipping",
+          "distance": 0.67849200963974,
+          "text": "Delivery policy\nStandard delivery takes five business days and costs five dollars. Express delivery takes two business days and costs twelve dollars. The original delivery charge is not refunded when a customer returns an unwanted item."
+        },
+        {
+          "source": "https://example.test/care",
+          "distance": 0.7395620346069336,
+          "text": "Product care\nWash cotton clothing in cold water and dry it on a low setting. Store electronics in a dry location away from direct sunlight. Disconnect devices before cleaning them with a soft cloth."
+        },
+        {
+          "source": "https://example.test/warranty",
+          "distance": 0.756170392036438,
+          "text": "Product warranty\nElectronics have a twelve-month warranty covering manufacturing defects. Accidental damage and water damage are excluded. Warranty claims require proof of purchase. Clothing does not have an electronics warranty."
+        }
+      ],
+      "evidence": [
+        {
+          "source": "https://example.test/returns",
+          "quote": "Customers may return unused items within thirty days of purchase."
+        }
+      ],
+      "seconds": 1.356
+    },
+    {
+      "id": "q2",
+      "category": "factual",
+      "question": "How long does standard delivery take?",
+      "expected_sources": [
+        "shipping"
+      ],
+      "reference_answer": "Standard delivery takes five business days.",
+      "term_groups": [
+        [
+          "five",
+          "5"
+        ],
+        [
+          "business"
+        ]
+      ],
+      "retrieval_recall": 1.0,
+      "expected_sources_cited": true,
+      "reference_terms_present": true,
+      "expected_behavior": true,
+      "answer": "Standard delivery takes five business days.",
+      "status": "answered",
+      "resolved_question": "How long does standard delivery take?",
+      "retrieved": [
+        {
+          "source": "https://example.test/shipping",
+          "distance": 0.30418992042541504,
+          "text": "Delivery policy\nStandard delivery takes five business days and costs five dollars. Express delivery takes two business days and costs twelve dollars. The original delivery charge is not refunded when a customer returns an unwanted item."
+        },
+        {
+          "source": "https://example.test/returns",
+          "distance": 0.6552726626396179,
+          "text": "Return policy\nCustomers may return unused items within thirty days of purchase. A receipt is required. Final-sale products cannot be returned. Approved refunds are issued to the original payment method within seven business days after inspection."
+        },
+        {
+          "source": "https://example.test/support",
+          "distance": 0.8036003708839417,
+          "text": "Customer support\nCustomer support is available Monday through Friday from 09:00 to 17:00 UTC. Email help@example.test for assistance. Support is closed on weekends. The team aims to reply within two business days."
+        },
+        {
+          "source": "https://example.test/privacy",
+          "distance": 0.8995776176452637,
+          "text": "Privacy notice\nCustomers can request a copy of their account data by contacting privacy@example.test. Marketing email preferences can be changed in account settings. Transaction records are retained for seven years."
+        }
+      ],
+      "evidence": [
+        {
+          "source": "https://example.test/shipping",
+          "quote": "Standard delivery takes five business days and costs five dollars."
+        }
+      ],
+      "seconds": 1.161
+    },
+    {
+      "id": "q3",
+      "category": "factual",
+      "question": "What does the electronics warranty cover and how long does it last?",
+      "expected_sources": [
+        "warranty"
+      ],
+      "reference_answer": "Manufacturing defects are covered for twelve months; accidental and water damage are excluded.",
+      "term_groups": [
+        [
+          "manufactur"
+        ],
+        [
+          "twelve",
+          "12"
+        ]
+      ],
+      "retrieval_recall": 1.0,
+      "expected_sources_cited": true,
+      "reference_terms_present": true,
+      "expected_behavior": true,
+      "answer": "The electronics warranty covers manufacturing defects. The warranty lasts twelve months.",
+      "status": "answered",
+      "resolved_question": "What does the electronics warranty cover and how long does it last?",
+      "retrieved": [
+        {
+          "source": "https://example.test/warranty",
+          "distance": 0.4044960141181946,
+          "text": "Product warranty\nElectronics have a twelve-month warranty covering manufacturing defects. Accidental damage and water damage are excluded. Warranty claims require proof of purchase. Clothing does not have an electronics warranty."
+        },
+        {
+          "source": "https://example.test/care",
+          "distance": 0.6829591393470764,
+          "text": "Product care\nWash cotton clothing in cold water and dry it on a low setting. Store electronics in a dry location away from direct sunlight. Disconnect devices before cleaning them with a soft cloth."
+        },
+        {
+          "source": "https://example.test/returns",
+          "distance": 0.7159311175346375,
+          "text": "Return policy\nCustomers may return unused items within thirty days of purchase. A receipt is required. Final-sale products cannot be returned. Approved refunds are issued to the original payment method within seven business days after inspection."
+        },
+        {
+          "source": "https://example.test/privacy",
+          "distance": 0.8535206317901611,
+          "text": "Privacy notice\nCustomers can request a copy of their account data by contacting privacy@example.test. Marketing email preferences can be changed in account settings. Transaction records are retained for seven years."
+        }
+      ],
+      "evidence": [
+        {
+          "source": "https://example.test/warranty",
+          "quote": "Electronics have a twelve-month warranty covering manufacturing defects."
+        },
+        {
+          "source": "https://example.test/warranty",
+          "quote": "Electronics have a twelve-month warranty covering manufacturing defects."
+        }
+      ],
+      "seconds": 2.77
+    },
+    {
+      "id": "q4",
+      "category": "factual",
+      "question": "When is customer support available?",
+      "expected_sources": [
+        "support"
+      ],
+      "reference_answer": "Monday-Friday, 09:00-17:00 UTC; closed weekends.",
+      "term_groups": [
+        [
+          "monday"
+        ],
+        [
+          "friday"
+        ],
+        [
+          "09:00",
+          "9:00",
+          "9 am",
+          "9 a.m."
+        ],
+        [
+          "17:00",
+          "5 pm",
+          "5 p.m."
+        ],
+        [
+          "utc"
+        ]
+      ],
+      "retrieval_recall": 1.0,
+      "expected_sources_cited": true,
+      "reference_terms_present": true,
+      "expected_behavior": true,
+      "answer": "Customer support is available Monday through Friday from 09:00 to 17:00 UTC.",
+      "status": "answered",
+      "resolved_question": "When is customer support available?",
+      "retrieved": [
+        {
+          "source": "https://example.test/support",
+          "distance": 0.20084476470947266,
+          "text": "Customer support\nCustomer support is available Monday through Friday from 09:00 to 17:00 UTC. Email help@example.test for assistance. Support is closed on weekends. The team aims to reply within two business days."
+        },
+        {
+          "source": "https://example.test/privacy",
+          "distance": 0.783582329750061,
+          "text": "Privacy notice\nCustomers can request a copy of their account data by contacting privacy@example.test. Marketing email preferences can be changed in account settings. Transaction records are retained for seven years."
+        },
+        {
+          "source": "https://example.test/returns",
+          "distance": 0.7845012545585632,
+          "text": "Return policy\nCustomers may return unused items within thirty days of purchase. A receipt is required. Final-sale products cannot be returned. Approved refunds are issued to the original payment method within seven business days after inspection."
+        },
+        {
+          "source": "https://example.test/shipping",
+          "distance": 0.8078970313072205,
+          "text": "Delivery policy\nStandard delivery takes five business days and costs five dollars. Express delivery takes two business days and costs twelve dollars. The original delivery charge is not refunded when a customer returns an unwanted item."
+        }
+      ],
+      "evidence": [
+        {
+          "source": "https://example.test/support",
+          "quote": "Customer support is available Monday through Friday from 09:00 to 17:00 UTC."
+        }
+      ],
+      "seconds": 1.353
+    },
+    {
+      "id": "q5",
+      "category": "cross_source",
+      "question": "If I return an unused item, what is the return deadline and will my original delivery charge be refunded?",
+      "expected_sources": [
+        "returns",
+        "shipping"
+      ],
+      "reference_answer": "Thirty days; original delivery charge is not refunded for unwanted-item returns.",
+      "term_groups": [
+        [
+          "thirty",
+          "30"
+        ],
+        [
+          "not",
+          "non-refundable",
+          "nonrefundable"
+        ]
+      ],
+      "retrieval_recall": 1.0,
+      "expected_sources_cited": true,
+      "reference_terms_present": true,
+      "expected_behavior": true,
+      "answer": "Unused items can be returned within thirty days of purchase. The original delivery charge will not be refunded when an item is returned.",
+      "status": "answered",
+      "resolved_question": "If I return an unused item, what is the return deadline and will my original delivery charge be refunded?",
+      "retrieved": [
+        {
+          "source": "https://example.test/returns",
+          "distance": 0.32811665534973145,
+          "text": "Return policy\nCustomers may return unused items within thirty days of purchase. A receipt is required. Final-sale products cannot be returned. Approved refunds are issued to the original payment method within seven business days after inspection."
+        },
+        {
+          "source": "https://example.test/shipping",
+          "distance": 0.4992104172706604,
+          "text": "Delivery policy\nStandard delivery takes five business days and costs five dollars. Express delivery takes two business days and costs twelve dollars. The original delivery charge is not refunded when a customer returns an unwanted item."
+        },
+        {
+          "source": "https://example.test/warranty",
+          "distance": 0.7757869362831116,
+          "text": "Product warranty\nElectronics have a twelve-month warranty covering manufacturing defects. Accidental damage and water damage are excluded. Warranty claims require proof of purchase. Clothing does not have an electronics warranty."
+        },
+        {
+          "source": "https://example.test/giftcards",
+          "distance": 0.8111592531204224,
+          "text": "Gift cards\nGift cards are available in amounts of twenty-five, fifty, or one hundred dollars. Gift cards do not expire. Gift cards cannot be redeemed for cash and cannot be used to purchase other gift cards."
+        }
+      ],
+      "evidence": [
+        {
+          "source": "https://example.test/returns",
+          "quote": "Customers may return unused items within thirty days of purchase."
+        },
+        {
+          "source": "https://example.test/shipping",
+          "quote": "The original delivery charge is not refunded when a customer returns an unwanted item."
+        }
+      ],
+      "seconds": 1.861
+    },
+    {
+      "id": "q6",
+      "category": "cross_source",
+      "question": "What proof is needed for a return and for an electronics warranty claim?",
+      "expected_sources": [
+        "returns",
+        "warranty"
+      ],
+      "reference_answer": "A receipt for returns and proof of purchase for warranty claims.",
+      "term_groups": [
+        [
+          "receipt"
+        ],
+        [
+          "proof of purchase"
+        ]
+      ],
+      "retrieval_recall": 1.0,
+      "expected_sources_cited": true,
+      "reference_terms_present": true,
+      "expected_behavior": true,
+      "answer": "A receipt is required to return an unused item. Proof of purchase is required to file an electronics warranty claim.",
+      "status": "answered",
+      "resolved_question": "What proof is needed for a return and for an electronics warranty claim?",
+      "retrieved": [
+        {
+          "source": "https://example.test/warranty",
+          "distance": 0.4738377332687378,
+          "text": "Product warranty\nElectronics have a twelve-month warranty covering manufacturing defects. Accidental damage and water damage are excluded. Warranty claims require proof of purchase. Clothing does not have an electronics warranty."
+        },
+        {
+          "source": "https://example.test/returns",
+          "distance": 0.5265881419181824,
+          "text": "Return policy\nCustomers may return unused items within thirty days of purchase. A receipt is required. Final-sale products cannot be returned. Approved refunds are issued to the original payment method within seven business days after inspection."
+        },
+        {
+          "source": "https://example.test/care",
+          "distance": 0.7044273018836975,
+          "text": "Product care\nWash cotton clothing in cold water and dry it on a low setting. Store electronics in a dry location away from direct sunlight. Disconnect devices before cleaning them with a soft cloth."
+        },
+        {
+          "source": "https://example.test/support",
+          "distance": 0.83805251121521,
+          "text": "Customer support\nCustomer support is available Monday through Friday from 09:00 to 17:00 UTC. Email help@example.test for assistance. Support is closed on weekends. The team aims to reply within two business days."
+        }
+      ],
+      "evidence": [
+        {
+          "source": "https://example.test/returns",
+          "quote": "A receipt is required."
+        },
+        {
+          "source": "https://example.test/warranty",
+          "quote": "Warranty claims require proof of purchase."
+        }
+      ],
+      "seconds": 1.442
+    },
+    {
+      "id": "q7",
+      "category": "follow_up",
+      "question": "Do I need a receipt for that?",
+      "expected_sources": [
+        "returns"
+      ],
+      "reference_answer": "Yes, a receipt is required for a return.",
+      "term_groups": [
+        [
+          "receipt"
+        ]
+      ],
+      "parent": "q1",
+      "retrieval_recall": 1.0,
+      "expected_sources_cited": true,
+      "reference_terms_present": true,
+      "expected_behavior": true,
+      "answer": "A receipt is required to return an unused item.",
+      "status": "answered",
+      "resolved_question": "Do I need a receipt to return an unused item?",
+      "retrieved": [
+        {
+          "source": "https://example.test/returns",
+          "distance": 0.4036821722984314,
+          "text": "Return policy\nCustomers may return unused items within thirty days of purchase. A receipt is required. Final-sale products cannot be returned. Approved refunds are issued to the original payment method within seven business days after inspection."
+        },
+        {
+          "source": "https://example.test/warranty",
+          "distance": 0.7775723338127136,
+          "text": "Product warranty\nElectronics have a twelve-month warranty covering manufacturing defects. Accidental damage and water damage are excluded. Warranty claims require proof of purchase. Clothing does not have an electronics warranty."
+        },
+        {
+          "source": "https://example.test/privacy",
+          "distance": 0.7835279107093811,
+          "text": "Privacy notice\nCustomers can request a copy of their account data by contacting privacy@example.test. Marketing email preferences can be changed in account settings. Transaction records are retained for seven years."
+        },
+        {
+          "source": "https://example.test/care",
+          "distance": 0.7999475598335266,
+          "text": "Product care\nWash cotton clothing in cold water and dry it on a low setting. Store electronics in a dry location away from direct sunlight. Disconnect devices before cleaning them with a soft cloth."
+        }
+      ],
+      "evidence": [
+        {
+          "source": "https://example.test/returns",
+          "quote": "Customers may return unused items within thirty days of purchase. A receipt is required."
+        }
+      ],
+      "seconds": 11.891
+    },
+    {
+      "id": "q8",
+      "category": "follow_up",
+      "question": "And how long does the faster option take?",
+      "expected_sources": [
+        "shipping"
+      ],
+      "reference_answer": "Express delivery takes two business days.",
+      "term_groups": [
+        [
+          "two",
+          "2"
+        ],
+        [
+          "business"
+        ]
+      ],
+      "parent": "q2",
+      "retrieval_recall": 1.0,
+      "expected_sources_cited": true,
+      "reference_terms_present": true,
+      "expected_behavior": true,
+      "answer": "The faster delivery option takes two business days.",
+      "status": "answered",
+      "resolved_question": "How long does the faster option take?",
+      "retrieved": [
+        {
+          "source": "https://example.test/shipping",
+          "distance": 0.6378018856048584,
+          "text": "Delivery policy\nStandard delivery takes five business days and costs five dollars. Express delivery takes two business days and costs twelve dollars. The original delivery charge is not refunded when a customer returns an unwanted item."
+        },
+        {
+          "source": "https://example.test/returns",
+          "distance": 0.7883965969085693,
+          "text": "Return policy\nCustomers may return unused items within thirty days of purchase. A receipt is required. Final-sale products cannot be returned. Approved refunds are issued to the original payment method within seven business days after inspection."
+        },
+        {
+          "source": "https://example.test/privacy",
+          "distance": 0.8928699493408203,
+          "text": "Privacy notice\nCustomers can request a copy of their account data by contacting privacy@example.test. Marketing email preferences can be changed in account settings. Transaction records are retained for seven years."
+        },
+        {
+          "source": "https://example.test/support",
+          "distance": 0.9115272760391235,
+          "text": "Customer support\nCustomer support is available Monday through Friday from 09:00 to 17:00 UTC. Email help@example.test for assistance. Support is closed on weekends. The team aims to reply within two business days."
+        }
+      ],
+      "evidence": [
+        {
+          "source": "https://example.test/shipping",
+          "quote": "Express delivery takes two business days"
+        }
+      ],
+      "seconds": 12.734
+    },
+    {
+      "id": "q9",
+      "category": "unanswerable",
+      "question": "What is the founder's date of birth?",
+      "expected_sources": [],
+      "reference_answer": "Abstain: no founder birth date is provided.",
+      "term_groups": [],
+      "retrieval_recall": null,
+      "expected_sources_cited": null,
+      "reference_terms_present": null,
+      "expected_behavior": true,
+      "answer": "I couldn\u2019t find enough evidence in the retrieved passages to answer this question.",
+      "status": "insufficient_evidence",
+      "resolved_question": "What is the founder's date of birth?",
+      "retrieved": [
+        {
+          "source": "https://example.test/privacy",
+          "distance": 0.8813765645027161,
+          "text": "Privacy notice\nCustomers can request a copy of their account data by contacting privacy@example.test. Marketing email preferences can be changed in account settings. Transaction records are retained for seven years."
+        },
+        {
+          "source": "https://example.test/support",
+          "distance": 0.9588609933853149,
+          "text": "Customer support\nCustomer support is available Monday through Friday from 09:00 to 17:00 UTC. Email help@example.test for assistance. Support is closed on weekends. The team aims to reply within two business days."
+        },
+        {
+          "source": "https://example.test/loyalty",
+          "distance": 0.9664986729621887,
+          "text": "Loyalty rewards\nMembers earn one reward point per dollar spent on eligible items. Points expire after twelve months of inactivity. Reward points cannot be exchanged for cash. Membership is free."
+        },
+        {
+          "source": "https://example.test/warranty",
+          "distance": 1.0063893795013428,
+          "text": "Product warranty\nElectronics have a twelve-month warranty covering manufacturing defects. Accidental damage and water damage are excluded. Warranty claims require proof of purchase. Clothing does not have an electronics warranty."
+        }
+      ],
+      "evidence": [],
+      "seconds": 6.688
+    },
+    {
+      "id": "q10",
+      "category": "unanswerable",
+      "question": "How much revenue did the company earn last year?",
+      "expected_sources": [],
+      "reference_answer": "Abstain: no revenue is provided.",
+      "term_groups": [],
+      "retrieval_recall": null,
+      "expected_sources_cited": null,
+      "reference_terms_present": null,
+      "expected_behavior": true,
+      "answer": "I couldn\u2019t find enough evidence in the retrieved passages to answer this question.",
+      "status": "insufficient_evidence",
+      "resolved_question": "How much revenue did the company earn last year?",
+      "retrieved": [
+        {
+          "source": "https://example.test/warranty",
+          "distance": 0.8840861320495605,
+          "text": "Product warranty\nElectronics have a twelve-month warranty covering manufacturing defects. Accidental damage and water damage are excluded. Warranty claims require proof of purchase. Clothing does not have an electronics warranty."
+        },
+        {
+          "source": "https://example.test/loyalty",
+          "distance": 0.9103015661239624,
+          "text": "Loyalty rewards\nMembers earn one reward point per dollar spent on eligible items. Points expire after twelve months of inactivity. Reward points cannot be exchanged for cash. Membership is free."
+        },
+        {
+          "source": "https://example.test/privacy",
+          "distance": 0.9301143288612366,
+          "text": "Privacy notice\nCustomers can request a copy of their account data by contacting privacy@example.test. Marketing email preferences can be changed in account settings. Transaction records are retained for seven years."
+        },
+        {
+          "source": "https://example.test/returns",
+          "distance": 0.940028727054596,
+          "text": "Return policy\nCustomers may return unused items within thirty days of purchase. A receipt is required. Final-sale products cannot be returned. Approved refunds are issued to the original payment method within seven business days after inspection."
+        }
+      ],
+      "evidence": [],
+      "seconds": 6.729
+    }
+  ],
+  "source_count": 8,
+  "chunk_count": 8
+}

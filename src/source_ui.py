@@ -34,4 +34,13 @@ def sync_library_state(source_ids):
         st.session_state.pop("answer_source", None)
         st.session_state.pop("retry_turn_id", None)
         st.session_state.pop("pending_source_delete", None)
+        st.session_state.pop("pdf_preview_request", None)
+        st.session_state.pop("pdf_preview_active", None)
+        for key in (
+            "active_conversation_id",
+            "active_conversation_title",
+            "conversation_name",
+            "conversation_dirty",
+        ):
+            st.session_state.pop(key, None)
     st.session_state["library_signature"] = signature

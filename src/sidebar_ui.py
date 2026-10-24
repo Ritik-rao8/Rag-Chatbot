@@ -7,7 +7,9 @@ from urllib.parse import urlsplit
 import streamlit as st
 
 from src.chat_ui import escape_markdown
+from src.conversation_ui import render_saved_conversations
 from src.ingestion import PDFError
+from src.pdf_preview import queue_pdf_preview
 from src.source_ui import sync_library_state
 from src.web_ingestion import WebError
 
@@ -143,12 +145,21 @@ def render_source_card(library, source):
             on_click=focus_source,
             args=(document_id, "Inspect documents"),
         )
+        if not is_web:
+            st.button(
+                "Preview PDF",
+                key=f"sidebar-preview-{document_id}",
+                icon=":material/picture_as_pdf:",
+                width="stretch",
+                on_click=queue_pdf_preview,
+                args=(document_id, 1),
+            )
         if st.session_state.get("pending_source_delete") == document_id:
             with st.container(border=True):
                 st.warning("Remove this source from your library?")
                 st.markdown(f"**{escape_markdown(source['filename'])}**")
                 st.caption(
-                    "Removes the saved copy and search index. The original file stays untouched. Chat history clears when the library changes."
+                    "Removes the saved copy and search index. The original file stays untouched. The current chat resets; saved conversations keep their cited excerpts."
                 )
                 if st.button(
                     "Confirm removal",
@@ -201,6 +212,7 @@ def render_sidebar(library):
         notice = st.session_state.pop("source_notice", None)
         if notice:
             st.success(notice)
+        render_saved_conversations(library, sources)
         st.divider()
         st.markdown("### Manage sources")
         if not sources:

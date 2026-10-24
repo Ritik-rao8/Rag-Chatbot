@@ -6,6 +6,7 @@ import streamlit as st
 
 from src.chat_ui import render_answers
 from src.config import get_settings
+from src.pdf_preview import render_page_view, render_requested_preview
 from src.sidebar_ui import render_sidebar
 from src.source_ui import location, source_access
 from src.vector_store import DocumentLibrary
@@ -129,6 +130,9 @@ with inspect_tab:
             )
         )
         page = pages[page_number - 1]
+        if inspect_tab.open and source.get("source_type", "pdf") == "pdf":
+            with st.expander("PDF page preview", expanded=True):
+                render_page_view(library, inspected, page_number, key=f"inspect-{inspected}")
         st.caption(location(page.metadata))
         st.text(page.page_content or "No extractable text on this page.")
         chunks = [
@@ -153,3 +157,5 @@ with st.expander("Pipeline settings"):
             for key, value in library.describe().items()
         }
     )
+
+render_requested_preview(library)

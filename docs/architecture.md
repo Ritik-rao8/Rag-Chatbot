@@ -16,6 +16,8 @@ flowchart TD
     Groq --> Check[Validate source IDs and exact quotes]
     Check --> Verify[Groq checks support and completeness]
     Verify --> UI[Cited answer or explicit abstention]
+    UI --> Chats[(Named conversations in local SQLite)]
+    Files --> Preview[Local PDF page renderer]
 ```
 
 Streamlit owns the UI and session transcript; LangChain connects splitting, embeddings,
@@ -37,5 +39,9 @@ correctness. Model errors, poor extraction, missing retrieval, and prompt inject
 possible. Distances are retrieval scores, not confidence percentages.
 
 The current app shares one library among sessions and expects one process per data
-directory. Conversation history is session-only. OCR, table reconstruction, reranking,
+directory. Unnamed conversation history is session-only. Named conversations retain up to 50 turns,
+cited text snapshots, scope, and source metadata in local SQLite. A changed library
+creates a context boundary: archived turns are readable but do not seed new retrieval
+questions. PDFium renders one requested PDF page locally, with a process-wide lock and
+a bounded image cache. OCR, table reconstruction, reranking,
 background jobs, user accounts, and per-user storage are future work.

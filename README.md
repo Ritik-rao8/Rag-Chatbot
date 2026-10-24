@@ -11,9 +11,9 @@ Streamlit, ChromaDB, and Sentence Transformers**.
 
 - Upload text-based PDFs or import public webpages.
 - Combine semantic search and keyword matching to find relevant passages.
-- Ask follow-up questions and review supporting quotes for each answer.
+- Ask follow-up questions, review quotes, and preview cited PDF pages in the app.
 - Search, inspect, and manage sources from the sidebar.
-- Export conversations and keep your document index between restarts.
+- Save named conversations, export chats, and keep your library between restarts.
 
 ## Setup
 
@@ -53,13 +53,16 @@ requires internet access to Groq. Restart the app after editing Python files.
 1. Open **Add sources** and upload a PDF or enter a webpage URL.
 2. Use **Chat** to ask questions and expand citations to review the evidence.
 3. Use **Search passages** and **Inspect documents** to explore your sources.
-4. Find sources in **Manage sources** to chat with, inspect, or remove them.
+4. Find sources in **Manage sources** to chat with, preview, inspect, or remove them.
+5. In a citation card, click **Preview PDF page** to view that page and navigate the PDF.
 
 Documents are split into chunks, embedded locally, and stored in ChromaDB. Each
 question retrieves relevant chunks before Groq generates and checks the answer.
 Questions, retrieved passages, and limited follow-up context are sent to Groq.
 Uploaded files, model caches, and the local index stay in the ignored `data/` folder.
-Chat history lasts for the current session unless exported.
+Use **Save chat** to name a conversation; later replies save automatically. Reopen it
+under **Saved conversations** in the sidebar. Saved chats keep up to 50 turns and
+their cited excerpts in `data/conversations.sqlite3`. Unnamed chats are session-only.
 
 ## Tests
 

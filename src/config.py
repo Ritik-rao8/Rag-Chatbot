@@ -1,4 +1,4 @@
-"""Small, explicit defaults for the first milestone."""
+"""Local storage and document-indexing defaults."""
 
 import os
 from dataclasses import dataclass
